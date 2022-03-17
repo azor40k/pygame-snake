@@ -24,7 +24,21 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#installation">How to launch</a></li>
       </ul>
+    </li>
+    <li>
+      <a href="#how-to-play">How to Play</a>
+      <ul>
+        <li><a href="#commands">Commands</a></li>
+        <li><a href="#more-commands">More commands</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+    <li>
+      <a href="#acknowledgements">Acknowledgements</a>
     </li>
   </ol>
 </details>
@@ -55,7 +69,34 @@ To get a local copy up and running follow these simple steps.
    ```sh
    git clone https://github.com/azor40k/pygame-snake
    ```
+2. Install dependencies
+   ```sh
+   pip install pygame
+   ```
+### How to launch
+  To launch de game press the RUN button on your IDE
+  or in a command line type :
+  ```sh
+  python app.py
+  ```
 
+<!-- How to Play -->
+## How to Play
+
+The purpose of the game is to eat the food and get your snake as big as possible.
+
+### Commands
+1. To move you can either use the directional arrow of your keyboard or the letter `Z` `Q` `S` `D`:
+  
+    to the left:      &#8592; or `Q`  
+    to the right:     &#8594; or `D`
+    to go up:         &#8593;  or `Z`
+    to go down:       &#8595; or `S`
+  
+### More commands
+After you finish a game,
+You can go for another round by pressing your `Enter` key
+Or if you want to close the game you can just press your `ESC` key.
 
 <!-- CONTACT -->
 ## Contact
