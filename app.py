@@ -28,9 +28,17 @@ class App:
             return True
         return False
 
+    def display_score(self):
+        font = pygame.font.SysFont('arial', 20)
+        message = font.render(f"Score: {self.snake.length}", True, colors.WHITE)
+        text_position = message.get_rect(center=(settings.SCREEN_WIDTH/2, settings.SCREEN_HEIGHT*.05))
+        self.screen.blit(message, text_position)
+        pygame.display.flip()
+
     def game_play(self):
         self.snake.move()
         self.food.display()
+        self.display_score()
         pygame.display.flip()
 
         # eat food

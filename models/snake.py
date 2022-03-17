@@ -47,5 +47,5 @@ class Snake:
         self.x.append(-1)
         self.y.append(-1)
 
-        if self.length % 3 == 0:
+        if self.length % 2 == 0:
             self.speed *= .8
