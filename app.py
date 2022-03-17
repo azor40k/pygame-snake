@@ -23,8 +23,7 @@ class App:
         self.snake = Snake(self.screen)
         self.food = Food(self.screen)
 
-
-    def is_collision(self, x1, y1, x2, y2):
+    def collision(self, x1, y1, x2, y2):
         if x1 == x2 and y1 == y2:
             return True
         return False
@@ -36,19 +35,19 @@ class App:
 
         # eat food
         for i in range(self.snake.length):
-            if self.is_collision(self.snake.x[i], self.snake.y[i], self.food.x, self.food.y):
-                self.snake.increase_length()
+            if self.collision(self.snake.x[i], self.snake.y[i], self.food.x, self.food.y):
+                self.snake.increase_snake()
                 self.food.change_position()
                 print(f'bigger snake: {self.snake.length}')
 
         # self collision
         for i in range(3, self.snake.length):
-            if self.is_collision(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
+            if self.collision(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
                 raise "Collision Death"
 
         # border collision
         if not (0 <= self.snake.x[0] <= settings.SCREEN_WIDTH and 0 <= self.snake.y[0] <= settings.SCREEN_HEIGHT):
-            raise "Boundary Death"
+            raise "Border Death"
 
     def game_over(self):
         print(settings.GAME_OVER_MESSAGE)
@@ -61,7 +60,6 @@ class App:
         print(settings.GAME_START_MESSAGE)
         game_running = True
         game_done = False
-        game_speed = .1
 
         while game_running:
             for event in pygame.event.get():
@@ -96,6 +94,6 @@ class App:
                 game_done = True
                 self.game_reset()
 
-            time.sleep(game_speed)
+            time.sleep(self.snake.speed)
 
 App().game_run()

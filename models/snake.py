@@ -9,9 +9,10 @@ class Snake:
         self.direction      = 'down'
         self.body           = pygame.Surface((40, 40), pygame.SRCALPHA)
         pygame.draw.circle(self.body , colors.GREEN, [20, 20], 40)
+        self.speed  = .2
         self.length = 1
-        self.x = [random.randint(1, 24)*settings.DEFAULT_SIZE]
-        self.y = [random.randint(1, 19)*settings.DEFAULT_SIZE]
+        self.x      = [random.randint(1, 24)*settings.DEFAULT_SIZE]
+        self.y      = [random.randint(1, 19)*settings.DEFAULT_SIZE]
 
     def snake_direction(self, direction):
         self.direction = direction
@@ -41,7 +42,10 @@ class Snake:
 
         pygame.display.flip()
 
-    def increase_length(self):
+    def increase_snake(self):
         self.length += 1
         self.x.append(-1)
         self.y.append(-1)
+
+        if self.length % 3 == 0:
+            self.speed *= .8
