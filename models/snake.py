@@ -35,6 +35,7 @@ class Snake:
         self.display()
 
     def display(self):
+        self.screen_parent.fill(colors.BLACK)
         for i in range(self.length):
             self.screen_parent.blit(self.body, (self.x[i], self.y[i]))
 
