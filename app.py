@@ -80,16 +80,16 @@ class App:
                         game_done = False
 
                     if not game_done:
-                        if event.key == K_LEFT or event.key == K_q:
+                        if (event.key == K_LEFT or event.key == K_q) and self.snake.direction != "right":
                             self.snake.snake_direction("left")
 
-                        if event.key == K_RIGHT or event.key == K_d:
+                        if (event.key == K_RIGHT or event.key == K_d) and self.snake.direction != "left":
                             self.snake.snake_direction("right")
 
-                        if event.key == K_UP or event.key == K_z:
+                        if (event.key == K_UP or event.key == K_z) and self.snake.direction != "down":
                             self.snake.snake_direction("up")
 
-                        if event.key == K_DOWN or event.key == K_s:
+                        if (event.key == K_DOWN or event.key == K_s) and self.snake.direction != "up":
                             self.snake.snake_direction("down")
 
                 elif event.type == QUIT:
