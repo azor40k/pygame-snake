@@ -95,8 +95,8 @@ The purpose of the game is to eat the food and get your snake as big as possible
     
   
 ### More commands
-After you finish a game,
-You can go for another round by pressing your `Enter` key
+After you finish a game,  
+You can go for another round by pressing your `Enter` key  
 Or if you want to close the game you can just press your `ESC` key.
 
 <!-- CONTACT -->
