@@ -25,9 +25,8 @@ class App:
 
 
     def is_collision(self, x1, y1, x2, y2):
-        if x1 >= x2 and x1 < x2 + settings.DEFAULT_SIZE:
-            if y1 >= y2 and y1 < y2 + settings.DEFAULT_SIZE:
-                return True
+        if x1 == x2 and y1 == y2:
+            return True
         return False
 
     def play(self):
@@ -52,14 +51,17 @@ class App:
             raise "Boundary Death"
 
     def game_over(self):
+        print(settings.GAME_OVER_MESSAGE)
         font = pygame.font.SysFont('arial', 30)
         message = font.render(settings.GAME_OVER_MESSAGE, True, colors.RED)
         self.screen.blit(message, (settings.SCREEN_WIDTH/2, settings.SCREEN_HEIGHT/2))
         pygame.display.flip()
 
     def game_run(self):
+        print(settings.GAME_START_MESSAGE)
         game_running = True
         game_done = False
+        game_speed = .1
 
         while game_running:
             for event in pygame.event.get():
@@ -94,6 +96,6 @@ class App:
                 game_done = True
                 self.game_reset()
 
-            time.sleep(.1)
+            time.sleep(game_speed)
 
 App().game_run()

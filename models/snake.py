@@ -1,22 +1,23 @@
 import pygame
+import random
 import config.settings as settings
 import assets.colors as colors
 
 class Snake:
-    def __init__(self, screen_parent):
-        self.screen_parent  = screen_parent
+    def __init__(self, screen):
+        self.screen_parent  = screen
         self.direction      = 'down'
         self.body           = pygame.Surface((40, 40), pygame.SRCALPHA)
         pygame.draw.circle(self.body , colors.GREEN, [20, 20], 40)
         self.length = 1
-        self.x = [40]
-        self.y = [40]
+        self.x = [random.randint(1, 24)*settings.DEFAULT_SIZE]
+        self.y = [random.randint(1, 19)*settings.DEFAULT_SIZE]
 
     def snake_direction(self, direction):
         self.direction = direction
 
     def move(self):
-        # update body size
+        # update body tail
         for i in range(self.length-1,0,-1):
             self.x[i] = self.x[i-1]
             self.y[i] = self.y[i-1]
@@ -36,6 +37,7 @@ class Snake:
     def display(self):
         for i in range(self.length):
             self.screen_parent.blit(self.body, (self.x[i], self.y[i]))
+
         pygame.display.flip()
 
     def increase_length(self):
