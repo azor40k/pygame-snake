@@ -1,4 +1,3 @@
-from typing_extensions import Self
 import pygame
 import config.settings as settings
 
