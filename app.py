@@ -31,7 +31,7 @@ class App:
         return False
 
     def play(self):
-        self.snake.walk()
+        self.snake.move()
         self.food.display()
         pygame.display.flip()
 

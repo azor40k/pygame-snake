@@ -15,7 +15,7 @@ class Snake:
     def snake_direction(self, direction):
         self.direction = direction
 
-    def walk(self):
+    def move(self):
         # update body size
         for i in range(self.length-1,0,-1):
             self.x[i] = self.x[i-1]
