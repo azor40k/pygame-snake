@@ -87,10 +87,10 @@ The purpose of the game is to eat the food and get your snake as big as possible
 
 ### Commands
 1. To move you can either use the directional arrow of your keyboard or the letter `Z` `Q` `S` `D`:
-    \n to the left:      &#8592; or `Q`  
-    \n to the right:     &#8594; or `D`
-    \n to go up:         &#8593; or `Z`
-    \n to go down:       &#8595; or `S`
+    to the left:      &#8592; or `Q`  
+    to the right:     &#8594; or `D`
+    to go up:         &#8593; or `Z`
+    to go down:       &#8595; or `S`
   
 ### More commands
 After you finish a game,
