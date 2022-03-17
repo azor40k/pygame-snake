@@ -35,19 +35,19 @@ class App:
         self.food.display()
         pygame.display.flip()
 
-        # snake eating food scenario
+        # eat food
         for i in range(self.snake.length):
             if self.is_collision(self.snake.x[i], self.snake.y[i], self.food.x, self.food.y):
                 self.snake.increase_length()
                 self.food.change_position()
                 print(f'bigger snake: {self.snake.length}')
 
-        # snake colliding with itself
+        # self collision
         for i in range(3, self.snake.length):
             if self.is_collision(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
                 raise "Collision Death"
 
-        # snake colliding with the boundries of the window
+        # border collision
         if not (0 <= self.snake.x[0] <= settings.SCREEN_WIDTH and 0 <= self.snake.y[0] <= settings.SCREEN_HEIGHT):
             raise "Boundary Death"
 
