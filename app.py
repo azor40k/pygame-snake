@@ -23,26 +23,26 @@ class App:
         self.snake = Snake(self.screen)
         self.food = Food(self.screen)
 
-    def collision(self, x1, y1, x2, y2):
+    def game_collision(self, x1, y1, x2, y2):
         if x1 == x2 and y1 == y2:
             return True
         return False
 
-    def play(self):
+    def game_play(self):
         self.snake.move()
         self.food.display()
         pygame.display.flip()
 
         # eat food
         for i in range(self.snake.length):
-            if self.collision(self.snake.x[i], self.snake.y[i], self.food.x, self.food.y):
+            if self.game_collision(self.snake.x[i], self.snake.y[i], self.food.x, self.food.y):
                 self.snake.increase_snake()
                 self.food.change_position()
                 print(f'bigger snake: {self.snake.length}')
 
         # self collision
         for i in range(3, self.snake.length):
-            if self.collision(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
+            if self.game_collision(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
                 raise "Collision Death"
 
         # border collision
@@ -51,9 +51,10 @@ class App:
 
     def game_over(self):
         print(settings.GAME_OVER_MESSAGE)
-        font = pygame.font.SysFont('arial', 30)
+        font = pygame.font.SysFont('arial', 50)
         message = font.render(settings.GAME_OVER_MESSAGE, True, colors.RED)
-        self.screen.blit(message, (settings.SCREEN_WIDTH/2, settings.SCREEN_HEIGHT/2))
+        text_position = message.get_rect(center=(settings.SCREEN_WIDTH/2, settings.SCREEN_HEIGHT/2))
+        self.screen.blit(message, text_position)
         pygame.display.flip()
 
     def game_run(self):
@@ -87,7 +88,7 @@ class App:
                     game_running = False
             try:
                 if not game_done:
-                    self.play()
+                    self.game_play()
 
             except Exception as e:
                 self.game_over()
