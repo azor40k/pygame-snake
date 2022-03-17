@@ -75,7 +75,7 @@ To get a local copy up and running follow these simple steps.
    ```
 ### How to launch
   To launch de game press the `RUN` button on your IDE
-  or in a command line type :
+  or in a command line, type :
   ```sh
   python app.py
   ```
