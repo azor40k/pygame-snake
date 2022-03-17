@@ -1,8 +1,7 @@
-game_caption        = "THE SNAKE GAME"
-game_over_message_1 = "GAME OVER"
-game_over_message_2 = "To play again press Enter. \nTo exit press Escape!"
+GAME_CAPTION        = "THE SNAKE GAME"
+GAME_OVER_MESSAGE   = "GAME OVER"
 
-screen_width        = 1000
-screen_height       = 800
+SCREEN_WIDTH        = 1000
+SCREEN_HEIGHT       = 800
 
-default_size        = 40
+DEFAULT_SIZE        = 40

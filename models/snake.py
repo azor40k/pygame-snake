@@ -16,25 +16,24 @@ class Snake:
         self.direction = direction
 
     def walk(self):
-        print(self.length)
-        # update body
+        # update body size
         for i in range(self.length-1,0,-1):
             self.x[i] = self.x[i-1]
             self.y[i] = self.y[i-1]
 
-        # update head
+        # update body direction
         if self.direction == 'left':
-            self.x[0] -= settings.default_size
+            self.x[0] -= settings.DEFAULT_SIZE
         if self.direction == 'right':
-            self.x[0] += settings.default_size
+            self.x[0] += settings.DEFAULT_SIZE
         if self.direction == 'up':
-            self.y[0] -= settings.default_size
+            self.y[0] -= settings.DEFAULT_SIZE
         if self.direction == 'down':
-            self.y[0] += settings.default_size
+            self.y[0] += settings.DEFAULT_SIZE
 
-        self.draw()
+        self.display()
 
-    def draw(self):
+    def display(self):
         for i in range(self.length):
             self.parent_screen.blit(self.body, (self.x[i], self.y[i]))
         pygame.display.flip()
